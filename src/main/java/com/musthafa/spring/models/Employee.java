@@ -13,8 +13,18 @@ public class Employee {
 	private String employeeName;
 	@Column(name = "eage")
 	private int employeeAge;
+	@Column(name = "edesignation")
+	private String employeeDesignation;
 	@Column(name = "esalary")
 	private float employeeSalary;
+
+	public String getEmployeeDesignation() {
+		return employeeDesignation;
+	}
+
+	public void setEmployeeDesignation(String employeeDesignation) {
+		this.employeeDesignation = employeeDesignation;
+	}
 
 	public int getEmployeeId() {
 		return employeeId;

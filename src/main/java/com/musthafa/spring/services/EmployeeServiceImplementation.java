@@ -38,7 +38,7 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	@Transactional
 	public List<Employee> listEmployees() {
 		// TODO Auto-generated method stub
-		return null;
+		return emp.listEmployees();
 	}
 
 	@Transactional
