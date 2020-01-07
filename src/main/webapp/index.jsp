@@ -19,7 +19,7 @@ button {
 <body>
 	<div class="container">
 		<h1>Welcome To Employee CRUD</h1>
-		<a href="http://localhost:8080/CRUD/employee/"><button>
+		<a href="/CRUD/employee/"><button>
 			<b>Get started</b>
 		</button></a>
 	</div>

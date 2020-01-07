@@ -10,22 +10,37 @@
 	margin: 50px;
 	margin-left: 150px;
 }
-
-button {
-	float: right;
-}
 </style>
 </head>
 <body>
 	<div class="container">
 		<h1>Add New Employee</h1>
-		<form:form method="post" action="save">
-
+		<form:form method="post" action="/CRUD/employee/" modelAttribute="emp">
+			<table>
+				<tr>
+					<td>Name :</td>
+					<td><form:input path="employeeName" /></td>
+				</tr>
+				<tr>
+					<td>Age :</td>
+					<td><form:input path="employeeAge" /></td>
+				</tr>
+				<tr>
+					<td>Designation :</td>
+					<td><form:input path="employeeDesignation" /></td>
+				</tr>
+				<tr>
+					<td>Salary :</td>
+					<td><form:input path="employeeSalary" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Save" /></td>
+				</tr>
+			</table>
 		</form:form>
+		<p>${message }</p>
 		<h1>Employees List</h1>
-		<a href="http://localhost:8080/CRUD/employee/">
-			<button>Add employee</button>
-		</a>
 		<table border="2" width="70%" cellpadding="2">
 			<tr>
 				<th>Id</th>
@@ -43,8 +58,18 @@ button {
 					<td>${emp.employeeAge}</td>
 					<td>${emp.employeeDesignation}</td>
 					<td>${emp.employeeSalary}</td>
-					<td><a href="editemp/${emp.employeeId}">Edit</a></td>
-					<td><a href="deleteemp/${employeeId}">Delete</a></td>
+					<td align="center">
+						<a href="/CRUD/employee/${emp.employeeId}">
+							<button>
+								Edit
+							</button>
+						</a>
+					</td>
+					<td align="center">
+						<form:form method="delete" action="/CRUD/employee/${emp.employeeId}">
+							<input type="submit" value="Delete" />
+						</form:form>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

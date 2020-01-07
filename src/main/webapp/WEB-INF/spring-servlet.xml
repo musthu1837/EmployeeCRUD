@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="  
         http://www.springframework.org/schema/beans  
         http://www.springframework.org/schema/beans/spring-beans.xsd  
@@ -13,9 +11,10 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
   		http://www.springframework.org/schema/tx  
     	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
-  <context:annotation-config/>
-	<mvc:annotation-driven />    	
-    <context:component-scan base-package="com.musthafa.spring.controllers" />
+	<context:annotation-config />
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.musthafa.spring.controllers" />
+	<tx:annotation-driven/>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
@@ -25,7 +24,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5433/practice" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/practice" />
 		<property name="username" value="postgres" />
 		<property name="password" value="root" />
 	</bean>
@@ -38,7 +37,6 @@
 				<value>com.musthafa.spring.models.Employee</value>
 			</list>
 		</property>
-
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
@@ -47,11 +45,11 @@
 			</props>
 		</property>
 	</bean>
-	
-	
+
+
 	<bean id="hibernate4AnnotatedSessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 
 		<property name="annotatedClasses">
 			<list>
@@ -71,11 +69,13 @@
 	<bean id="employeeDAO" class="com.musthafa.spring.daos.EmployeeDaoImplementation">
 		<property name="sessionFactory" ref="mysessionFactory"></property>
 	</bean>
-	<bean id="employeeService" class="com.musthafa.spring.services.EmployeeServiceImplementation">
+	<bean id="employeeService"
+		class="com.musthafa.spring.services.EmployeeServiceImplementation">
 		<property name="emp" ref="employeeDAO"></property>
 	</bean>
-	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"></property>
-	</bean>	
+	</bean>
 </beans>
