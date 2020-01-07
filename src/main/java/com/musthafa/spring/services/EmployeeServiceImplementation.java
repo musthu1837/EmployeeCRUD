@@ -24,15 +24,15 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	}
 
 	@Transactional
-	public int addEmployee(Employee e) {
+	public void addEmployee(Employee e) {
 		// TODO Auto-generated method stub
-		return 0;
+		emp.addEmployee(e);
 	}
 
 	@Transactional
-	public int updateEmployee(Employee e) {
+	public void updateEmployee(Employee e) {
 		// TODO Auto-generated method stub
-		return 0;
+		emp.updateEmployee(e);
 	}
 
 	@Transactional
@@ -44,13 +44,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
 	@Transactional
 	public Employee getEmployeeById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return emp.getEmployeeById(id);
 	}
 
 	@Transactional
-	public int removePhone(int id) {
+	public void removeEmployee(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		emp.removeEmployee(id);
 	}
 
 }

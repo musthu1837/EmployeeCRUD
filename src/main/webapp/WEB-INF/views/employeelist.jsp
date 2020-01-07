@@ -10,22 +10,11 @@
 	margin: 50px;
 	margin-left: 150px;
 }
-
-button {
-	float: right;
-}
 </style>
 </head>
 <body>
 	<div class="container">
-		<h1>Add New Employee</h1>
-		<form:form method="post" action="save">
-
-		</form:form>
 		<h1>Employees List</h1>
-		<a href="http://localhost:8080/CRUD/employee/">
-			<button>Add employee</button>
-		</a>
 		<table border="2" width="70%" cellpadding="2">
 			<tr>
 				<th>Id</th>
@@ -43,14 +32,15 @@ button {
 					<td>${emp.employeeAge}</td>
 					<td>${emp.employeeDesignation}</td>
 					<td>${emp.employeeSalary}</td>
-					<td><a href="editemp/${emp.employeeId}">Edit</a></td>
-					<td><a href="deleteemp/${employeeId}">Delete</a></td>
+					<td><a href="editemployee/${emp.employeeId}">Edit</a></td>
+					<td><a href="deleteemployee/${emp.employeeId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<p>
 			Returned <b>${listLength}</b> row(s).
 		</p>
+		<a href="/CRUD/employee/addemployee">Add Employee</a>
 	</div>
 </body>
 </html>

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Delete message</title>
+<title>Update message</title>
 </head>
 <body>
-	<h2>Employee deleted successfully..</h2>
+	<h2>Employee updated successfully..</h2>
 	<a href="/CRUD/employee/">View Employees</a>
 </body>
 </html>

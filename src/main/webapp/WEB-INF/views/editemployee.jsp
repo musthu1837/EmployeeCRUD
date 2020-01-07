@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add employee</title>
+<title>Edit employee</title>
 <style type="text/css">
 .container {
 	margin: 50px;
@@ -13,9 +13,13 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Add New Employee</h1>
-		<form:form method="post" action="/CRUD/employee/saveemployee" modelAttribute="emp">
+		<h1>Edit Employee</h1>
+		<form:form method="post" action="/CRUD/employee/updateemployee" modelAttribute="emp">
 			<table>
+				<tr>
+					<td>ID : </td>
+					<td>${emp.employeeId}<form:input path="employeeId" type="hidden"/></td>
+				</tr>			
 				<tr>
 					<td>Name :</td>
 					<td><form:input path="employeeName" /></td>
@@ -34,7 +38,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" value="Save" /></td>
+					<td><input type="submit" value="Update" /></td>
 				</tr>
 			</table>
 		</form:form>

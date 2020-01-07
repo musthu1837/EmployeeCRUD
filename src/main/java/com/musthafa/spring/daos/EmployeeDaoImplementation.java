@@ -45,8 +45,12 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 	public Employee getEmployeeById(int id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		Employee e = (Employee) session.load(Employee.class, new Integer(id));
-		return e;
+		@SuppressWarnings("unchecked")
+		List<Employee> employeeList = session.createQuery("from Employee E WHERE E.employeeId = " + id).list();
+		System.out.println(employeeList);
+		if (employeeList.size() != 0)
+			return employeeList.get(0);
+		return null;
 	}
 
 	public int removeEmployee(int id) {
