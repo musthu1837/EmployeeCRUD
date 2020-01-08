@@ -1,7 +1,10 @@
 package com.musthafa.spring.controllers;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.musthafa.spring.models.Employee;
 import com.musthafa.spring.services.EmployeeService;
@@ -32,8 +35,13 @@ public class EmployeeController {
 		return "addemployee";
 	}
 	@PostMapping("/saveemployee")
-	public String saveEmployee(@ModelAttribute Employee e) {
-		model.addEmployee(e);
+	public String saveEmployee(@ModelAttribute("emp") @Valid Employee emp,  BindingResult result, Model m) {
+		if (result.hasErrors()) {
+			m.addAttribute("emp", emp);
+			System.out.println("musthafa");
+            return "addemployee";
+        }
+		model.addEmployee(emp);
 		return "saveemployee";
 	}	
 	@GetMapping("/deleteemployee/{id}")

@@ -6,11 +6,13 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.musthafa.spring.daos.EmployeeDao;
 import com.musthafa.spring.models.Employee;
 
 @Service
+@EnableTransactionManagement
 public class EmployeeServiceImplementation implements EmployeeService {
 	@Autowired
 	private EmployeeDao emp;
